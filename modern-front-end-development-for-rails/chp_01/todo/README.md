@@ -1,5 +1,14 @@
 # README
 
+# prerequesites
+
+- ruby 3.0.2
+
+- Execute: `bin/setup`
+
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
