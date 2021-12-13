@@ -2,28 +2,18 @@
 
 <h1>Todo Lists</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>pending items</th>
-      <th>completed items</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @todo_lists.each do |todo_list| %>
-      <tr>
-        <td><%= link_to todo_list.title, todo_list %></td>
-        <td><%= todo_list.todo_items.pending.count %></td>
-        <td><%= todo_list.todo_items.completed.count %></td>
-        <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
-        <td><%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul>
+  <% @todo_lists.each do |todo_list| %>
+    <li>
+      <%= link_to todo_list.title, todo_list %>
+      ( Complete: <%= todo_list.todo_items.completed.count %>
+      Pending: <%= todo_list.todo_items.pending.count %> )
+      <%= link_to 'Edit', edit_todo_list_path(todo_list) %>
+      |
+      <%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
 
 <br>
 
